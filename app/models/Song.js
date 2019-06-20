@@ -7,5 +7,28 @@ export default class Song {
         this.collection = song.collectionName
         this.price = song.collectionPrice
         this.preview = song.previewUrl
+        
+    }
+
+    get Template(){
+    return `
+    <div class="row">
+        <div class="col-12" style="height: 2vh;"></div>
+    </div>
+    <div class="row">
+        <div class="col-12 border border-white-50 rounded p-4 ">
+            <img src="${this.albumArt}" alt="Album Art"><h4 class="text-right">Price: ${this.price}</h4>
+            <h4>Song: ${this.title}</h4>
+            <h4>Artist: ${this.artist}</h4>
+            <h4>Album: ${this.collection}</h4>
+            <audio controls>
+                <source src="${this.preview}">
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+    </div>
+      
+        `
+
     }
 }

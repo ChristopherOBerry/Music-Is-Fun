@@ -4,7 +4,17 @@ const itunesService = new ItunesService()
 
 function drawSongs() {
   //changes button back to GET MUSIC once songs are loaded
-  document.querySelector('#get-music-button').textContent = 'GET MUSIC'
+  
+  document.querySelector('#get-music-button').textContent = 'Get Music'
+  // document.querySelector('#songs').textContent = itunesService.Songs
+  let displaySongs = document.querySelector('#songs')
+  let template = ''
+  let songs = itunesService.Songs
+  songs.forEach(song => {
+    template += song.Template
+  })
+  displaySongs.innerHTML = template;
+  
   console.log(itunesService.Songs)
 
 }
@@ -14,6 +24,9 @@ function drawSongs() {
 class ItunesController {
   constructor() {
     //BE SURE TO REGISTER YOUR SUBSCRIBERS!!!!!!!
+    itunesService.addSubscriber("songs",drawSongs)
+      drawSongs()
+
   }
 
 
@@ -22,7 +35,7 @@ class ItunesController {
     e.preventDefault();
     var artist = e.target.artist.value;
     //changes the button to loading while songs load
-    document.querySelector('#get-music-button').textContent = 'LOADING....'
+    document.querySelector('#get-music-button').textContent = 'Loading...'
     itunesService.getMusicByArtist(artist)
   }
 }

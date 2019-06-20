@@ -7,22 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Music Is Fun!</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
-<body>
-    <form class="form-inline" onsubmit="app.controllers.itunesCtrl.getMusic(event)">
-        <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
-        <div class="form-group">
-            <input type="text" class="form-control" name="artist" placeholder="Artist Name" />
-            <button type="submit" class="btn btn-primary" id="get-music-button">Get Music</button>
+<body class="bg-dark text-light">
+    
+    <div class="container">
+            <div class="row pt-4">
+                    <div class="col-8"><h1><img src="/assets/itunes-logo-png-transparent.png" alt="iTunes Logo" style="height:5vh;"> iTunes Search</h1></div>
+                    <div class="col-4 d-flex justify-items-center"><form class="form-inline" onsubmit="app.controllers.itunesCtrl.getMusic(event)">
+                            <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="artist" placeholder="Artist Name" />
+                                <button type="submit" class="btn text-light" id="get-music-button" style="background-color: #fd365e;">Get Music</button>
+                            </div>
+                        </form></div>
+            </div>
+        
+        <div id="songs">
+    
         </div>
-    </form>
-    <div id="songs">
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="module" src="app/main.js"></script>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="module" src="app/main.js"></script>
+    <div class="row">
+        <div class="col-12"></div>
+    </div>
 </body>
 
 </html>
