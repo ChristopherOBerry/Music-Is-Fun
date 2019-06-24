@@ -7,10 +7,13 @@ export default class Song {
         this.collection = song.collectionName
         this.price = song.collectionPrice
         this.preview = song.previewUrl
-        
     }
 
     get Template(){
+        /** TODO revove the extra div row and opt for css spacing
+        * Remove the audio tag from here and opt for a sinlge audio element
+        * add an onclick that passes in the this.preview to the itunes controller play method
+        */
     return `
     <div class="row">
         <div class="col-12" style="height: 2vh;"></div>

@@ -21,10 +21,13 @@ class ItunesService {
   }
 
   getMusicByArtist(artist) {
+    // TODO: look at the itunes api to see how to add in the song filter to the url
     var url = 'https://itunes.apple.com/search?callback=?&term=' + artist;
     // @ts-ignore
     $.getJSON(url)
       .then(res => {
+        // TODO Filter out videos look at the song.kind property before mapping to the song
+        // res.results.filter(s => s.kind == "song").map()
         let results = res.results.map(s => new Song(s))
         setState('songs', results)
       })
